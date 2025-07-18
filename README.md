@@ -1,0 +1,1 @@
+The [wikipedia entry on radix economy](https://en.wikipedia.org/wiki/Optimal_radix_choice) is flawed, as shown in [the best way to count](https://www.youtube.com/watch?v=rDDaEVcwIJM). This is an attempt to correct it.
