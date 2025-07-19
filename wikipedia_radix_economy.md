@@ -1,7 +1,11 @@
 {{short description|Number of digits needed to express a number in a particular base}}
-In mathematics and computer science, '''optimal radix choice''' is the problem of choosing the base, or [[radix]], that is best suited for representing numbers. Various proposals have been made to quantify the relative costs of using different radices in representing numbers, especially in computer systems. One formula is the number of [[digit (math)|digit]]s needed to express it in that base, multiplied by the base (the number of possible values each digit could have). This expression also arises in questions regarding organizational structure, networking, and other fields.
+In mathematics and computer science, '''optimal radix choice''' is the problem of choosing the base, or [[radix]], that is best suited for representing numbers. Various proposals have been made to quantify the relative costs of using different radices in representing numbers, especially in computer systems. 
+
 
 ==Definition==
+===Digit-Cost Model===
+One formula is the number of [[digit (math)|digit]]s needed to express it in that base, multiplied by the base (the number of possible values each digit could have). This expression also arises in questions regarding organizational structure, networking, and other fields.
+
 The cost of representing a number ''N'' in a given base ''b'' can be defined as
 
 : <math>E(b,N) = b \lfloor \log_b (N) +1 \rfloor \,  </math>
@@ -13,6 +17,10 @@ If both ''b'' and ''N'' are positive integers, then the quantity <math>E(b,N)</m
 For example, [[100 (number)|100]] in [[decimal]] has three digits, so its cost of representation is 10×3&nbsp;=&nbsp;30, while its binary representation has seven digits (1100100<sub>2</sub>), so the analogous calculation gives 2×7&nbsp;=&nbsp;14.  Likewise, in [[base 3]] its representation has five digits (10201<sub>3</sub>), for a value of 3×5&nbsp;=&nbsp;15, and in base 36 (2S<sub>36</sub>) one finds 36×2&nbsp;=&nbsp;72.
 
 If the number is imagined to be represented by a [[combination lock]] or a [[tally counter]], in which each wheel has ''b'' digit faces, from <math>0, 1, ..., b-1</math> and having <math>\lfloor \log_b (N) +1 \rfloor</math> wheels, then <math>E(b,N)</math> is the total number of digit faces needed to inclusively represent any integer from 0 to ''N''.
+
+===Entropy Model===
+Another perspective is that of [[Information theory]]. By convention, the leftmost digit of a number cannot be zero, and thus carries less information than all other digits, as the information contained within a digit is proportional to the logarithm of its number of possible values. In a base ''b''' representation of a number ''N''', there are <math>floor(log_b(N))</math> digits that can take the entire range of values [0, b), plus one digit with the slightly smaller range of [1, b). With this, we can define the cost of representing a number ''N'' in a given base ''b'' as:
+<math> E(b, N) = \lfloor \log_b (N) \rfloor \log (b) + \log (b - 1)</math>
 
 ==Asymptotic behavior==
 The quantity <math>E(b,N)</math> for large ''N'' can be approximated as follows:
